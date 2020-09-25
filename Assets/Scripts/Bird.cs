@@ -1,14 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 
 public class Bird : MonoBehaviour
 {
     private float speed;
-
    
-
-    
     void Update()
     {
         speed = GameManager.Instance.worldSpeed;
@@ -20,8 +16,8 @@ public class Bird : MonoBehaviour
 
     private void OnEnable()
     {        
-        transform.localPosition = new Vector3(Random.Range(-0.8f,0.8f), Random.Range(-0.5f,0.8f), 5);
-        while(Mathf.Abs(transform.localPosition.x) < 0.05f)
+        transform.localPosition = new Vector3(Random.Range(-0.9f,0.9f), Random.Range(-0.7f,0.8f), 5);
+        while(Mathf.Abs(transform.localPosition.x) < 0.01f)
         {
             transform.localPosition = new Vector3(Random.Range(-0.8f, 0.8f), Random.Range(-0.5f, 0.8f), 5);
         }

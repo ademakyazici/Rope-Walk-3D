@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -34,7 +34,7 @@ public class RandomGenerator : MonoBehaviour
         RandomGenerate();
 
     }
-    private void Update()
+    private void FixedUpdate()
     {
         MoveCity();
     }
@@ -47,27 +47,8 @@ public class RandomGenerator : MonoBehaviour
             {
                 GameObject newCube = Instantiate(cube, this.transform);
                 newCube.transform.localPosition = new Vector3(startPosX + x * (plainX / (columns * transform.localScale.x)), 0, startPosZ + z * (plainZ / (rows * transform.localScale.z)));
-                newCube.transform.localScale = new Vector3(0.5f, Random.Range(100, 150), 0.5f);
-                /*
-                Color color = new Color(
-                    Random.Range(0f, 1f),
-                    Random.Range(0f, 1f),
-                    Random.Range(0f, 1f)
-                    );
-
-                newCube.transform.GetComponent<MeshRenderer>().material.color = color;
-                */
-
-                /*
-                if (newCube.transform.localPosition.x == 0)
-                {
-                    Destroy(newCube);
-                }
-                else
-                {
-                    cubes.Add(newCube.transform);
-                }
-                */
+                newCube.transform.localScale = new Vector3(1, Random.Range(100, 150), 1);
+          
                 cubes.Add(newCube.transform);
             }
         }

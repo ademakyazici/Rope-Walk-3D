@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
       
     void Update()
     {
-        GetComponent<Animator>().speed = GameManager.Instance.worldSpeed/4;
+        GetComponent<Animator>().speed = GameManager.Instance.worldSpeed/6;
         PlayerInput();
         Unbalance();
         CheckBalance();
@@ -95,7 +95,9 @@ public class PlayerController : MonoBehaviour
         float stickRotation = EulerToRotation(stick.transform.localRotation.eulerAngles.z);
         float unbalanceSpeed = (stickRotation / 100)*stickSpeed;
 
-        stick.transform.Rotate(new Vector3(0, 0, unbalanceSpeed * Time.deltaTime));
+        Vector3 unbalanceVector = new Vector3(0, 0, unbalanceSpeed * Time.deltaTime);
+        stick.transform.Rotate(unbalanceVector);
+        arms.transform.Rotate(unbalanceVector);
     }
 
 
